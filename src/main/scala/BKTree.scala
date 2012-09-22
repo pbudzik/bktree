@@ -37,7 +37,7 @@ class BKTree(dictionary: Seq[String], dist: (String, String) => Int = Levenshtei
 
   dictionary.tail.foreach(s => addNode(root, new BKNode(s)))
 
-  def addNode(dst: BKNode, src: BKNode) {
+  private def addNode(dst: BKNode, src: BKNode) {
     if (!src.equals(dst)) {
       val d = dist(src.name, dst.name)
       dst.childAt(d) match {
